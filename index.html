@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeweek1_assignment#01</title>
+    <script>
+
+        //         1. Write a JavaScript program to display the current day and time in the following format.
+        // Sample Output: Today is: Tuesday.
+        // Current time is: 10 PM: 30 : 38
+
+        var DayName = ["sun", "Monday", "Tuesday", "wed", "Thur", "Fri", "sat"]
+        var C_Date = new Date();
+        var The_Day = C_Date.getDay();
+        var C_Hours = C_Date.getHours();
+        var C_Min = C_Date.getMinutes();
+        var C_sec = C_Date.getSeconds();
+        document.write("Today is :", DayName[The_Day])
+        document.write("<br>", " current Time is :", C_Hours, ":", C_Min, ":", C_sec)
+
+
+        //         2. Write a JavaScript program to get the current date. 
+        //        Expected Output:
+        //         mm - dd - yyyy, mm / dd / yyyy or dd - mm - yyyy, dd / mm / yyyy
+
+
+        var TheMonth = ["jan", "feb", "mar", "april", "may", "june", "july", "aug", "sep", "oct", "nov", "dec"]
+        var C_Date = new Date();
+        var the_Month = C_Date.getMonth();
+        var the_year = C_Date.getFullYear();
+        var the_day = C_Date.getDay();
+        document.write(the_day, "-", TheMonth[the_Month], "-", the_year);
+
+        //         3. Write a JavaScript program to find the area of a triangle where lengths of the 
+        //     three of its sides are 5, 6, 7
+
+        var a = 5, b = 6, c = 7;
+        var s = (a + b + c) / 2
+        var areaofTri = Math.sqrt(s * (s - a) * (s - b) * (s - c))    //formula root s (s-a)*(s-b)*(s-c)
+        document.write("Area of triangle : ", areaofTri)
+
+        //         4. Write a JavaScript program to rotate the string 'Saylani' in
+        //             right direction by periodically removing one letter from the end of the string and attaching it to the front.
+
+        var str = "Saylani";
+        document.write("original string ==>>", str, "<br> after reverse :");
+        var Rev_str;
+        str = str.split('');
+        var size = str.length - 1;
+        for (var i = 0; i <= size; i++) {
+            Rev_str = str.pop();
+            document.write()
+            document.write(Rev_str)
+            console.log(Rev_str);
+        }
+
+
+
+        //         5. Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar.
+        var the_year = prompt("enter year");
+        var leap = new Date(the_year, 1, 29).getDate() === 29;
+        if (leap) {
+            document.write(the_year, " is leap year")
+        }
+        else {
+            document.write(the_year, " is not leap year")
+        }
+
+
+        //6. Write a JavaScript program to find 1st January is being a Sunday between 2014 and 2050.
+
+        var year;
+        for (year = 2014; year <= 2050; year++) {
+            var day = new Date(year, 0, 1)
+            if (day.getDay() === 0) {
+                document.write("1st January is being a Sunday  ", year, "<br>")
+            }
+        }
+
+        // 7. Write a JavaScript program where the program takes a random Number between 1 to 10, 
+        //the user is then prompted to input a guess number. If the user input matches with guess number, 
+        //the program will display a message "Good Work" otherwise display a message "Not matched".
+
+        var input = +prompt("enter a number of your choise b/w 1-10");
+        var number = 5;
+        if (input === number) {
+            alert("Good luck");
+        } else {
+            alert("not match");
+        }
+
+        // 8. Write a JavaScript program to calculate days left until next 14 August.
+        var today = new Date();
+        var Aug_14 = Date(today.getFullYear(), 7, 14)
+        if (today.getMonth() == 7 && today.getDate() > 14) {                  //error
+            Aug_14.setFullYear(Aug_14.getFullYear() + 1);
+        }
+
+        var one_day = 1000 * 60 * 60 * 24;
+        console.log(Math.ceil((Aug_14.getTime() - today.getTime()) / (one_day)) + " days left until 14 Aug!");
+
+        //9. Write a JavaScript program to calculate multiplication and division of two numbers.
+
+        var num1 = +prompt("enter num1");
+        var num2 = +prompt("enter num2");
+
+        var mul = num1 * num2;
+        var div = num1 / num2;
+        console.log("Multiplication of  ", num1, " and ", num2, " is :", mul);
+        console.log("division of  ", num1, " and ", num2, " is :", div);
+
+        // 10. Write a JavaScript program to convert temperatures to and from Celsius, Fahrenheit. 
+        //[ Formula : c/5 = (f-32)/9 [ where c = temperature in Celsius and f = temperature in Fahrenheit ]
+
+        var Option = +prompt("select option 1.Celsius to Fahrenheit  2. Fahrenheit to Celsius")
+        if (Option == 1) {
+            var C_temp = +prompt("enter temp in  celsius");
+            var temp_in_F = C_temp * 9 / 5 + 32;
+            console.log(C_temp, " degree =", temp_in_F, "  Fahrenheit")
+        }
+        if (Option == 2) {
+            var F_temp = +prompt("enter temp in  celsius");
+            var temp_in_c = (F_temp - 32) * 5 / 9;
+            console.log(F_temp, " Fahrenheit =", temp_in_c, "  degree ")
+        }
+
+        //11. Write a JavaScript program to compute the sum of the two given Numbers. 
+        //If the two values are same, then returns triple their sum.
+
+        var num1 = +prompt("enter num1")
+        var num2 = +prompt("enter num2")
+        if (num1 === num2) {
+            triple_sum = (num1 + num2) + (num1 + num2) + (num1 + num2);
+            console.log(num1, " and ", num2, " are same ,so we return triple their sum :", triple_sum);
+        } else {
+            sum = num1 + num2;
+            console.log("sum of ", num1, " and ", num2, " is ", sum);
+        }
+
+        //12. Write a JavaScript program to check whether a given Number is within 20 of 100 or 400.
+
+        var x = +prompt("enter a number");
+        function testhundred(x) {
+            return ((Math.abs(100 - x) <= 20) || (Math.abs(400 - x) <= 20));     // not undersand question
+        }
+
+        //13. Write a JavaScript program to find the largest of three given Numbers.
+
+        var num1 = +prompt("enter three nums ");
+        var num2 = +prompt();
+        var num3 = +prompt();
+
+        var max_num = 0;
+        if (num1 > num2) {
+            max_num = num1
+        } else if (num1 > num3) {
+            max_num = num1
+        } else if (num2 > num3) {
+            max_num = num2
+        } else { max_num = num3 }
+        console.log("largest number in ", num1, " ,", num2, " and ", num3, " are :", max_num);
+
+
+        //14. Write a JavaScript program to capitalize the first letter of each word of a given string.
+        var str = prompt("enter string");
+        var letter = str[0].toUpperCase(); // first letter convert in upercase
+        var str = (letter + str.substring(1))   /// here first letter concatenat with other string , and substring method use for removing first letter of lower case
+        console.log(str)
+
+        //15. Write a JavaScript program to convert a given days to hours and minutes.
+        //i.e: 1 day equals 24hr
+
+        var Enter_day = +prompt("enter days");
+        var Housr = Enter_day * 24;
+        var Min = Housr * 60;
+        console.log(Enter_day, " days is equal ", Housr, " OR ", Min);
+
+        //16. Write a JavaScript program to reverse the elements of a given array, you can not use Array.reverse() do it with loop.
+
+        var arr = [0, 1, 3, 5, 6];
+        var addition_length = arr.length - 1; // here we add extra length for mantaning array length
+        console.log("original array :", arr)
+        var arr2 = [arr.length];
+
+        for (var j = 0; j <= arr.length + addition_length; j++) {
+
+            arr2[j] = arr.pop() // pop method remove the element from array and decrese length so we add array lenth above
+
+        }
+        console.log("after reverse :", arr2)
+
+        //17. Write a JavaScript program to find the larger value between the first or last
+        //and set all the other elements with that value. Display the new array.
+
+        var The_array = [];   //declear array
+        var size = +prompt("enter array size"); // array size from user
+        for (var i = 0; i < size; i++) {   // for array input
+            The_array[i] = prompt("enter value   below num show index number of array", +(i + 1)); // i+1 show index number in screen
+        }
+        console.log(The_array);
+        var value = 0;
+        for (var i = 0; i <= size; i++) {  // finding largest vlue in array
+            if (value < The_array[i]) {
+                value = The_array[i];
+            }
+        }
+        for (var i = 0; i < size; i++) { // replacing all element of array by greater one
+            The_array[i] = value;
+        }
+        console.log("gretest value of array :", value);
+        console.log("after entering largest value in all position", The_array);
+
+        //18. Write a JavaScript program to find the kth greatest element of a given array of Numbers
+
+        var The_array = [];   //declear array
+        var size = +prompt("enter array size"); // array size from user
+        for (var i = 0; i < size; i++) {   // for array input
+            The_array[i] = prompt("enter value   below num show index number of array", +(i + 1)); // i+1 show index number in screen
+        }
+        The_array.sort(function (a, b) { return b - a })  // array sorting in decending order   for asc order--> The_array.sort(function(a,b){return a-b})
+        console.log("decending order sorted arry", The_array)
+        var key = +prompt("enter key to find the greatest element of array");
+        var Kth_greatest_value = 0;
+        for (var i = 0; i < key; i++) {   // finding kth greatest value
+            Kth_greatest_value = The_array[i];
+        }
+        console.log("key :", key);
+        console.log(key, "th greatest value of array is ", Kth_greatest_value);
+
+
+
+        //19. Write a JavaScript program to find the number which appears most in a given array of Numbers.
+
+        var The_array = [];   //declear array
+        var size = +prompt("enter array size"); // array size from user
+        for (var i = 0; i < size; i++) {   // for array input
+            The_array[i] = prompt("enter value   below num show index number of array", +(i + 1)); // i+1 show index number in screen
+        }
+        console.log(The_array);
+        var count = 1;
+        var item_count = 0;
+        var item;
+        for (var i = 0; i <= size; i++) {
+            for (var j = i; j <= size; j++) {
+                if (The_array[i] == The_array[j]) {  //compair array values
+                    item_count++;
+                }
+                if (count < item_count) {
+                    count = item_count;
+                    item = The_array[i];
+                }
+            }
+            item_count = 0;
+        }
+        if (count > 1) {
+            console.log(item, "(", count, ")");
+        } else { console.log("non repeated value exist in array ") }
+
+        //20. Write a JavaScript program to replace all the numbers with a specified number of a given array of Numbers.
+        var The_array = [];   //declear array
+        var size = +prompt("enter array size"); // array size from user
+        for (var i = 0; i < size; i++) {   // for array input
+            The_array[i] = prompt("enter value   below num show index number of array", +(i + 1)); // i+1 show index number in screen
+        }
+        console.log(The_array);
+        var replace_value = prompt("enter replace vlaue");
+
+        for (var i = 0; i < size; i++) {
+            The_array[i] = replace_value;
+            console.log("replacing value is :".replace_value)
+        }
+        console.log("after replacing by ", replace_value, "the array is :", The_array);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
